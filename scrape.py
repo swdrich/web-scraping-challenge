@@ -69,59 +69,59 @@ def scrape_info():
     scrape_dict["mars_html"] = mars_html
 
     ##########################################
-    # # Mars Hemisphere Images
-    # guss_url = "https://marshemispheres.com/"
-    # browser.visit(guss_url)
+    # Mars Hemisphere Images
+    guss_url = "https://marshemispheres.com/"
+    browser.visit(guss_url)
 
-    # # Get links to images
-    # html = browser.html
-    # guss_soup = bs(html, "html.parser")
-    # results = guss_soup.find_all('div', class_='description')
+    # Get links to images
+    html = browser.html
+    guss_soup = bs(html, "html.parser")
+    results = guss_soup.find_all('div', class_='description')
 
-    # url_dict_list = []
+    url_dict_list = []
 
-    # for result in results:
+    for result in results:
     
-    #     url_dict = {}
-    #     link = result.find('a')
-    #     title = result.find('h3').text
-    #     img_url = link['href']
+        url_dict = {}
+        link = result.find('a')
+        title = result.find('h3').text
+        img_url = link['href']
     
-    #     url_dict.update({"title": title})
-    #     url_dict.update({"img_url": img_url})
+        url_dict.update({"title": title})
+        url_dict.update({"img_url": img_url})
     
-    #     url_dict_list.append(url_dict)
+        url_dict_list.append(url_dict)
 
-    # # Build list with full links to iterate over
+    # Build list with full links to iterate over
 
-    # url_list = []
+    url_list = []
 
-    # for dictionary in url_dict_list:
+    for dictionary in url_dict_list:
     
-    #     base_url = "https://marshemispheres.com/"
-    #     img_url = dictionary['img_url']
+        base_url = "https://marshemispheres.com/"
+        img_url = dictionary['img_url']
     
-    #     full_url = f'{base_url}{img_url}'
-    #     url_list.append(full_url)
+        full_url = f'{base_url}{img_url}'
+        url_list.append(full_url)
 
-    # # Scrape the images
+    # Scrape the images
 
-    # mars_hemispheres = []
+    mars_hemispheres = []
 
-    # for url in url_list:
+    for url in url_list:
     
-    #     url_dict = {}
+        url_dict = {}
     
-    #     browser.visit(url)
-    #     html = browser.html
-    #     soup = bs(html, "html.parser")
+        browser.visit(url)
+        html = browser.html
+        soup = bs(html, "html.parser")
     
-    #     url_dict['title'] = soup.find('h2', class_="title").text
-    #     url_dict['img_url'] = soup.find('img', class_='wide-image')['src']
+        url_dict['title'] = soup.find('h2', class_="title").text
+        url_dict['img_url'] = soup.find('img', class_='wide-image')['src']
     
-    #     mars_hemispheres.append(url_dict)
+        mars_hemispheres.append(url_dict)
     
-    # scrape_dict['mars_hemispheres'] = mars_hemispheres  
+    scrape_dict['mars_hemispheres'] = mars_hemispheres  
 
     #####################################
     # Close browser
