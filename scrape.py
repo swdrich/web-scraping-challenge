@@ -29,6 +29,8 @@ def scrape_info():
     print(news_teaser)
     scrape_dict["news_teaser"] = news_teaser
 
+    browser.quit()
+
     #########################################
     # Scrape JPL Mars Images
     jpl_url = 'https://spaceimages-mars.com/'
@@ -44,6 +46,8 @@ def scrape_info():
     featured_image_url = f'{jpl_url}{results}'
     print(featured_image_url)
     scrape_dict["featured_image_url"] = featured_image_url
+
+    browser.quit
 
     #########################################
     # Mars Facts
@@ -92,6 +96,8 @@ def scrape_info():
     
         url_dict_list.append(url_dict)
 
+        browser.quit()
+
     # Build list with full links to iterate over
 
     url_list = []
@@ -120,11 +126,10 @@ def scrape_info():
         url_dict['img_url'] = soup.find('img', class_='wide-image')['src']
     
         mars_hemispheres.append(url_dict)
+        browser.quit()
     
     scrape_dict['mars_hemispheres'] = mars_hemispheres  
 
     #####################################
-    # Close browser
-    browser.quit() 
-
+    
     return scrape_dict
