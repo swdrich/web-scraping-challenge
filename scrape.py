@@ -112,7 +112,8 @@ def scrape_info():
     mars_hemispheres = []
 
     for url in url_list:
-    
+
+        base_url = "https://marshemispheres.com/"
         url_dict = {}
     
         browser.visit(url)
@@ -120,7 +121,8 @@ def scrape_info():
         soup = bs(html, "html.parser")
     
         url_dict['title'] = soup.find('h2', class_="title").text
-        url_dict['img_url'] = soup.find('img', class_='wide-image')['src']
+        link = soup.find('img', class_='wide-image')['src']
+        url_dict['img_url'] = f'{base_url}{link}'
     
         mars_hemispheres.append(url_dict)
     
@@ -129,5 +131,5 @@ def scrape_info():
     #####################################
     
     browser.quit()
-    
+
     return scrape_dict
