@@ -17,6 +17,38 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
+    <!-- Mars Headlines -->
+    <div class="row">
+      <div clasas="col-md-12">
+        <h2>Latest Mars News</h2>
+        <h4>{{ mars.news_title }}Mars news title</h4></br>
+        <p>{{ mars.news_teaser }}Mars news teaser</p>
+      </div>
+    </div>
+
+    <!-- Mars Image -->
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Featured Mars Image</h2>
+        <img src={{ mars.featured_img_url }} alt="featured mars image">
+      </div>
+      <!-- Mars Facts Table -->
+      <div class="col-md-4">
+        <h4>Mars Facts</h4>
+        <table class="table">
+          {{ mars_html }}
+        </table>
+      </div>
+    </div>
+
+    <!-- Mars Hemispheres -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">Mars Hemispheres</h2>
+        <hr>
+      </div>
+    </div>
+
   </div>
       
 </body>
