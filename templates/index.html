@@ -7,13 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    th, td { padding: 5px; }
+  </style>
 </head>
 
 <body>
   <div class="container">
 
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars!</h1>
+    <div class="jumbotron text-center" style="background-image: url(https://scx2.b-cdn.net/gfx/news/2020/1-mars.jpg)">
+      <h1 style="color:gainsboro">Mission to Mars!</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
@@ -34,12 +38,14 @@
       </div>
       <!-- Mars Facts Table -->
       <div class="col-md-4">
-        <h4>Mars Facts</h4>
+        <h2>Mars Facts</h2>
         <table class="table">
           {{ mars.mars_html | safe }}
         </table>
       </div>
     </div>
+
+    <br>
 
     <!-- Mars Hemispheres -->
     <div class="row">
@@ -52,17 +58,17 @@
       
       {% for entry in mars.mars_hemispheres %}
 
-      <div class="col-md-3">
-        <div class="card">
-          <img class="card-img-top" src="{{ entry.img_url }}" width = "300px" alt="Card image cap">
+      <div class="col-sm-6 col-md-3">
+        <div class="card w-25">
+          <img class="card-img-top" src="{{ entry.img_url }}" width = "275px" alt="Card image cap">
           <div class="card-body">
-          <h4 class="card-title">{{ entry.title }}</h4>
+            <h4 class="card-title">{{ entry.title }}</h4>
+          </div>
         </div>
       </div>
-
       {% endfor %}
-      
     </div>
+
   </div>
   
   
